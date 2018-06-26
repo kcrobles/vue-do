@@ -1,0 +1,15 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Todo app manager",
+  "main": "index.js",
+  "author": "Kenny Chancafe",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "live-server public/"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}

@@ -1,0 +1,85 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Fira Mono", monospace;
+}
+div {
+  box-sizing: border-box !important;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  font-weight: 600;
+}
+.row {
+  margin: 20px auto;
+}
+.todo-container {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#todoin {
+  padding: 10px 10px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+#todoin:focus {
+  outline: none;
+}
+.entry {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+}
+.btn {
+  padding-right: 10px;
+  padding-left: 10px;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+.btn-add {
+  width: 80px;
+  font-weight: 600;
+}
+.btn-add:hover {
+  background-color: black;
+  color: white;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.todo-list {
+  border: 1px solid #c3c3c3;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.19);
+}
+.todo-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  border-bottom: 1px solid #c2c2c2;
+}
+.todo-list-item i {
+  cursor: pointer;
+}
