@@ -3,7 +3,7 @@ html {
   padding: 0;
 }
 body {
-  font-family: "Fira Mono", monospace;
+  font-family: 'Fira Mono', monospace;
 }
 div {
   box-sizing: border-box !important;
@@ -30,6 +30,7 @@ div {
   width: 100%;
   font-size: 16px;
   box-sizing: border-box;
+  border: 1px solid #c3c3c3;
 }
 #todoin:focus {
   outline: none;
@@ -47,6 +48,7 @@ div {
   padding-left: 10px;
   text-transform: uppercase;
   background-color: transparent;
+  border: 1px solid #c3c3c3;
 }
 .btn-add {
   width: 80px;
@@ -82,4 +84,20 @@ div {
 }
 .todo-list-item i {
   cursor: pointer;
+}
+.pending {
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #21c0ff;
+}
+.completed {
+  font-weight: 400;
+  text-decoration: line-through;
+  background-color: #afafaf;
+}
+.ongoing {
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: none;
+  background-color: #3afc7a;
 }

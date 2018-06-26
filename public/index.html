@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,12 @@
   <link rel="icon" type="image/png" href="./assets/logo.png">
   <title>Todo Vue</title>
   <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/main.css" />
   <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
 </head>
+
 <body>
   <div id="app">
     <div class="container">
@@ -20,7 +23,7 @@
       <div class="row">
         <div class="todo-container">
           <add-todo v-bind:handler="addtodo"></add-todo>
-          <todo-list v-bind:todos="todos" />
+          <todo-list v-if="todos.length > 0" v-bind:todos="todos" v-bind:deleter="deleter"></todo-list>
           <!-- <div class="entry">
             <input
               type="text" 
@@ -39,7 +42,7 @@
                 <i class="fab fa-algolia fa-2x"></i>
             </li>
           </ul> -->
-          <p class="counter">
+          <p class="counter" v-if="todos">
             Total: {{ todos.length }}
           </p>
         </div>
@@ -49,4 +52,5 @@
   </div>
   <script src="./assets/app.js"></script>
 </body>
+
 </html>
