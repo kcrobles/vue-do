@@ -89,15 +89,28 @@ div {
   font-weight: 600;
   text-decoration: none;
   background-color: #21c0ff;
+  border-top: 1px;
+  border-right: 1px;
+  border-left: 1px;
+  border-bottom: 0px;
+  border-color: black;
+  border-style: solid;
+}
+.pending:last-child {
+  border-bottom: 1px;
+  border-color: black;
+  border-style: solid;
 }
 .completed {
   font-weight: 400;
   text-decoration: line-through;
   background-color: #afafaf;
+  border: 1px 1px 0px 1px solid black;
 }
 .ongoing {
   font-weight: 600;
   font-style: italic;
   text-decoration: none;
   background-color: #3afc7a;
+  border: 1px 1px 0px 1px solid black;
 }

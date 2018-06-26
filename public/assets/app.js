@@ -1,12 +1,6 @@
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 };
-// String.prototype.camelCase() = function() {
-//   let str = this.split(' ');
-//   str = str.forEach(function(s) { s.capitalize() }).join(' ');
-//   // return this.split(' ').forEach((s) => s.capitalize()).join(' ');
-//   return str;
-// }
 
 Vue.component('todo-list', {
   props: ['todos', 'deleter'],
@@ -31,7 +25,7 @@ Vue.component('todo-item', {
     }
   },
   template: `
-    <li class="todo-list-item">
+    <li v-if="status" :class="['todo-list-item', status]">
       <div>{{ description }}</div>
       <i @click="handleDelete" class="fab fa-algolia fa-2x"></i>
     </li>
@@ -91,7 +85,7 @@ const app = new Vue({
     addtodo: function(text) {
       if (text !== undefined && text.length > 0) {
         this.todos.push({
-          description: text.camelCase(),
+          description: text.capitalize(),
           status: 'pending'
         });
         this.save();
