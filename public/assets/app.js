@@ -97,7 +97,7 @@ Vue.component('filter-selector', {
 const app = new Vue({
   el: '#app',
   data: {
-    title: 'Vuetodo App',
+    title: 'Todo Vue',
     another: '',
     todos: [],
     filters: [
@@ -153,7 +153,7 @@ const app = new Vue({
     },
     filtered: function() {
       const { name } = this.filters.filter((f) => f.selected === true)[0];
-      return this.todos.filter(function(todo) {
+      return this.todos.filter((todo) => {
         if (name !== 'all') {
           return todo.status === name;
         } 
