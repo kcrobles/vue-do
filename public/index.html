@@ -22,28 +22,22 @@
       </div>
       <div class="row">
         <div class="todo-container">
-          <add-todo v-bind:handler="addtodo"></add-todo>
-          <todo-list v-if="todos.length > 0" v-bind:todos="todos" v-bind:deleter="deleter"></todo-list>
-          <!-- <div class="entry">
-            <input
-              type="text" 
-              name="todoin" 
-              id="todoin" 
-              placeholder="Enter a todo"
-              v-model="another">
-            <button class="btn btn-add" @click="addTodo">add</button>
-          </div> -->
-          <!-- <ul class="todo-list">
-            <li 
-              class="todo-list-item" 
-              ><div>{{ todo.description }} 
-              </div>
-              v-for="todo in todos"
-                <i class="fab fa-algolia fa-2x"></i>
-            </li>
-          </ul> -->
-          <p class="counter" v-if="todos">
-            Total: {{ todos.length }}
+          <add-todo 
+            :handler="addtodo"
+          ></add-todo>
+          <todo-list 
+            v-if="todos.length > 0" 
+            :todos="filtered()" 
+            :deleter="deleter"
+            :statuschange="statuschange" 
+            :filters="filters"
+          ></todo-list>
+          <filter-selector 
+            :filters="filters" 
+            :filterchange="filterchange"
+          ></filter-selector>
+          <p class="counter">
+            {{ todos.length > 0 ? 'Total: ' + todos.length : 'There is no todos' }}
           </p>
         </div>
       </div>
