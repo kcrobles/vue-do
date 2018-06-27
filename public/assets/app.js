@@ -5,7 +5,7 @@ const COMPLETED = "completed";
 const PENDING = "pending";
 
 Vue.component('todo-list', {
-  props: ['todos', 'deleter', 'statuschange', 'filters'],
+  props: ['todos', 'deleter', 'statuschange'],
   template: `
     <ul class="todo-list" v-if="todos.length > 0">
       <todo-item 
