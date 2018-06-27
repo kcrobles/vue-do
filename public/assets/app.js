@@ -4,8 +4,8 @@ String.prototype.capitalize = function() {
 const COMPLETED = "completed";
 const PENDING = "pending";
 
-Vue.component('todo-list', {
-  props: ['todos', 'deleter', 'statuschange'],
+Vue.component("todo-list", {
+  props: ["todos", "deleter", "statuschange"],
   template: `
     <ul class="todo-list" v-if="todos.length > 0">
       <todo-item 
@@ -20,8 +20,8 @@ Vue.component('todo-list', {
   `
 });
 
-Vue.component('todo-item', {
-  props: ['description', 'status', 'deleter', 'onstatuschange'],
+Vue.component("todo-item", {
+  props: ["description", "status", "deleter", "onstatuschange"],
   methods: {
     handleDelete: function(event) {
       this.deleter(this.$vnode.key);
@@ -40,11 +40,11 @@ Vue.component('todo-item', {
   `
 });
 
-Vue.component('add-todo', {
-  props: ['handler'],
+Vue.component("add-todo", {
+  props: ["handler"],
   data: function() {
     return {
-      text: ''
+      text: ""
     };
   },
   methods: {
@@ -56,7 +56,7 @@ Vue.component('add-todo', {
       event.preventDefault();
       if (event.keyCode == 13) {
         this.handler(this.text);
-        this.text = '';
+        this.text = "";
       }
     }
   },
@@ -75,8 +75,8 @@ Vue.component('add-todo', {
   `
 });
 
-Vue.component('filter-selector', {
-  props: ['filters', 'filterchange'],
+Vue.component("filter-selector", {
+  props: ["filters", "filterchange"],
   methods: {
     handleClick: function(index) {
       this.filterchange(index);
@@ -95,19 +95,19 @@ Vue.component('filter-selector', {
 });
 
 const app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    title: 'Todo Vue',
-    another: '',
+    title: "Todo Vue",
+    another: "",
     todos: [],
     filters: [
-      { name: 'all', selected: true },
-      { name: 'pending', selected: false },
-      { name: 'completed', selected: false }
+      { name: "all", selected: true },
+      { name: "pending", selected: false },
+      { name: "completed", selected: false }
     ]
   },
   mounted() {
-    const data = localStorage.getItem('vuetodo');
+    const data = localStorage.getItem("vuetodo");
     if (data) {
       const parsed = JSON.parse(data);
       this.todos = [...parsed];
@@ -124,9 +124,9 @@ const app = new Vue({
       }
     },
     save: function() {
-      if (this.todos.length > 0) {
+      if (this.todos) {
         const json = JSON.stringify(this.todos);
-        localStorage.setItem('vuetodo', json);
+        localStorage.setItem("vuetodo", json);
       }
     },
     deleter: function(index) {
@@ -135,29 +135,30 @@ const app = new Vue({
     },
     statuschange: function(index) {
       this.todos = this.todos.map((todo, idx) => {
-        if(idx === index) {
+        if (idx === index) {
           let { status } = todo;
           status = status === PENDING ? COMPLETED : PENDING;
-          return {...todo, status: status};
+          return { ...todo, status: status };
         }
         return todo;
       });
+      this.save();
     },
     filterchange: function(index) {
       this.filters = this.filters.map((filter, idx) => {
-        if(idx === index) {
-          return {...filter, selected: true };
+        if (idx === index) {
+          return { ...filter, selected: true };
         }
-        return {...filter, selected: false };
+        return { ...filter, selected: false };
       });
     },
     filtered: function() {
-      const { name } = this.filters.filter((f) => f.selected === true)[0];
-      return this.todos.filter((todo) => {
-        if (name !== 'all') {
+      const { name } = this.filters.filter(f => f.selected === true)[0];
+      return this.todos.filter(todo => {
+        if (name !== "all") {
           return todo.status === name;
-        } 
-        return todo;                
+        }
+        return todo;
       });
     }
   }
