@@ -19,9 +19,13 @@ div {
 }
 .row {
   margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .todo-container {
   width: 600px;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;

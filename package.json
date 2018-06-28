@@ -7,12 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "live-server public/",
-    "start": "node server/server.js"
+    "serve": "live-server public/"
   },
-  "dependencies": {
-    "express": "^4.16.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "live-server": "^1.2.0"
   }
