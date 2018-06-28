@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "live-server public/"
+    "serve": "live-server public/",
+    "start": "live-server public/"
   },
   "dependencies": {},
   "devDependencies": {
